@@ -14,7 +14,7 @@ class IrioSummarySeeder extends Seeder
      */
     public function run()
     {
-        $csvFile = fopen(base_path("database/data/irio_summary.csv"), "r");
+        $csvFile = fopen(base_path("./database/data/irio_summary.csv"), "r");
 
         $firstline = true;
 
