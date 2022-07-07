@@ -2,6 +2,8 @@
 ## Requirement
 - PHP 8.0+
 - Postgresql 9.5+
+- Composer
+- NPM
 - extensi `pdo_pgsql` pada `pgsql` pada `php.ini`, dapat ikuti tutorial [ini](https://tonyfrenzy.medium.com/using-postgresql-with-laravel-c4c320ca7f34)
 
 ## Cara Install
@@ -15,5 +17,6 @@
 - Buka url `http://localhost:8000/admin/login`
 - Login dengan `admin@example.com` dan password `password123`
 
-## Setiap Ada Commit Migration dan Seeder Baru
+## Setiap Ada Commit Migration/Seeder/Dependency Baru
+- Jalankan `composer install` pada terminal 
 - Jalankan `php artisan migrate:fresh --seed` pada terminal 
