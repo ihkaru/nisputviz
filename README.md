@@ -10,4 +10,5 @@
 - Buat file `.env` berdasarkan isi dari file `.env.example`
 - Sesuaikan `DB_HOST`, `DB_USERNAME`, `DB_PASSWORD`, `DB_PORT` dengan yang ada di lokal masing-masing
 - Jalankan `php artisan migrate:fresh --seed` pada terminal
+- Jalankan `php artisan key:generate`
 - Jalankan `php artisan serve` untuk menyalakan server

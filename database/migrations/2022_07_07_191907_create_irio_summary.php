@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('irio_summary', function (Blueprint $table) {
             $table->id();
-            $table->char('kode_prov', 2);
+            $table->char('kode_provinsi', 2);
             $table->string('provinsi');
             $table->string('kode_kategori', 10);
             $table->string('kategori');
