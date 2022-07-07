@@ -14,3 +14,6 @@
 - Jalankan `php artisan serve` untuk menyalakan server
 - Buka url `http://localhost:8000/admin/login`
 - Login dengan `admin@example.com` dan password `password123`
+
+## Setiap Ada Commit Migration dan Seeder Baru
+- Jalankan `php artisan migrate:fresh --seed` pada terminal 
