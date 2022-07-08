@@ -21,6 +21,7 @@
     </head>
 
     <body class="antialiased">
+        <h1>hai</h1>
         {{ $slot }}
     </body>
 </html>
