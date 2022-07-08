@@ -17,7 +17,7 @@ class IrioSummaryResource extends Resource
 {
     protected static ?string $model = IrioSummary::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
 
     public static function form(Form $form): Form
     {
@@ -75,14 +75,14 @@ class IrioSummaryResource extends Resource
                 Tables\Actions\ForceDeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -91,8 +91,8 @@ class IrioSummaryResource extends Resource
             'view' => Pages\ViewIrioSummary::route('/{record}'),
             'edit' => Pages\EditIrioSummary::route('/{record}/edit'),
         ];
-    }    
-    
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
