@@ -10,6 +10,7 @@
 ## Cara Install
 - Install sesuai requirement yang ada jika belum ada
 - Jalankan `composer install` pada terminal
+- Jalankan `npm install` pada terminal
 - Buat file `.env` berdasarkan isi dari file `.env.example`
 - Sesuaikan `DB_HOST`, `DB_USERNAME`, `DB_DATABASE`, `DB_PASSWORD`, `DB_PORT` dengan yang ada di lokal masing-masing (instal postgres dan buat databasenya jika belum). Keempat field tersebut ditentukan saat menginstall postgresql di lokal. Nilai default sesuai dengan yang ada pada `.env.example`. Sedangkan `DB_DATABASE` harus dibuat sendiri terlebih dahulu dengan nama database default `nisputviz`.
 - Jalankan `php artisan migrate:fresh --seed` pada terminal
