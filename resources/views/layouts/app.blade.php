@@ -12,11 +12,11 @@
         <!-- Styles -->
         <style>[x-cloak] { display: none !important; }</style>
         @livewireStyles
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
         @livewireScripts
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
         @stack('scripts')
     </head>
 
