@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('irio_summary', function (Blueprint $table) {
             $table->id();
             $table->char('kode_provinsi', 2);
-            $table->string('provinsi');
+            $table->string('provinsi',150);
             $table->string('kode_kategori', 10);
-            $table->string('kategori');
+            $table->string('kategori',150);
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
-            $table->string('variable');
+            $table->string('variable',150);
             $table->double('value')->default(0);
             $table->softDeletes();
             $table->timestamps();
