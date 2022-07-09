@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Filters\SelectFilter;
 
 class LinkTableauResource extends Resource
 {
@@ -27,7 +29,14 @@ class LinkTableauResource extends Resource
             ->schema([
                 Textarea::make('link')
                     ->required()
-                    ->rows(15)
+                    ->rows(15),
+                Select::make('jenis_dashboard')
+                    ->options([
+                        'Dahsboard 1' => 'Dashboard 1',
+                        'Dahsboard 2' => 'Dashboard 2',
+                        'Dahsboard 3' => 'Dashboard 3',
+                    ])
+                    ->required()
             ]);
     }
 
@@ -36,15 +45,23 @@ class LinkTableauResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('link')->limit(50),
-
+                TextColumn::make('jenis_dashboard'),
+                TextColumn::make('created_at')->sortable(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
             ])
+            ->filters([
+                SelectFilter::make('jenis_dashboard')
+                    ->options([
+                        'Dahsboard 1' => 'Dashboard 1',
+                        'Dahsboard 2' => 'Dashboard 2',
+                        'Dahsboard 3' => 'Dashboard 3',
+                    ])
+            ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+                Tables\Actions\ForceDeleteBulkAction::make(),
+            ])->defaultSort('created_at', 'desc');
     }
 
     public static function getPages(): array
@@ -52,7 +69,6 @@ class LinkTableauResource extends Resource
         return [
             'index' => Pages\ListLinkTableaus::route('/'),
             'create' => Pages\CreateLinkTableau::route('/create'),
-            'edit' => Pages\EditLinkTableau::route('/{record}/edit'),
         ];
     }
 
