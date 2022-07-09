@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\IrioSummaryResource\Pages;
-use App\Filament\Resources\IrioSummaryResource\RelationManagers;
 use App\Models\IrioSummary;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -35,8 +34,6 @@ class IrioSummaryResource extends Resource
                 Forms\Components\TextInput::make('kategori')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('latitude'),
-                Forms\Components\TextInput::make('longitude'),
                 Forms\Components\TextInput::make('variable')
                     ->required()
                     ->maxLength(255),
@@ -53,8 +50,6 @@ class IrioSummaryResource extends Resource
                 Tables\Columns\TextColumn::make('provinsi'),
                 Tables\Columns\TextColumn::make('kode_kategori'),
                 Tables\Columns\TextColumn::make('kategori'),
-                Tables\Columns\TextColumn::make('latitude'),
-                Tables\Columns\TextColumn::make('longitude'),
                 Tables\Columns\TextColumn::make('variable'),
                 Tables\Columns\TextColumn::make('value'),
                 Tables\Columns\TextColumn::make('created_at')
