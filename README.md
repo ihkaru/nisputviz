@@ -2,8 +2,9 @@
 ## Requirement
 - PHP 8.0+
 - Postgresql 9.5+
+- Node 16.15.1+
 - Composer
-- NPM 16.15.1+
+- NPM
 - extensi `pdo_pgsql` pada `pgsql` pada `php.ini`, dapat ikuti tutorial [ini](https://tonyfrenzy.medium.com/using-postgresql-with-laravel-c4c320ca7f34)
 
 ## Cara Install
