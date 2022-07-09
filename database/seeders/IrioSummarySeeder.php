@@ -19,6 +19,7 @@ class IrioSummarySeeder extends Seeder
         $firstline = true;
 
         $irio = [];
+        IrioSummary::truncate();
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if ($firstline) {
                 $firstline = false;
@@ -28,11 +29,9 @@ class IrioSummarySeeder extends Seeder
                 'provinsi' => $data[0],
                 'kategori' => $data[1],
                 'kode_provinsi' => $data[2],
-                'latitude' => $data[3],
-                'longitude' => $data[4],
-                'kode_kategori' => $data[5],
-                'variable' => $data[6],
-                'value' => $data[7],
+                'kode_kategori' => $data[3],
+                'variable' => $data[4],
+                'value' => $data[5],
                 'created_at' => now(),
                 'updated_at' => now()
             ];
