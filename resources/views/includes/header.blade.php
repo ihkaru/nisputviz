@@ -14,7 +14,6 @@
       <li class=""><a class="rounded-b-lg text-orange-500 hover:cursor-pointer hover:bg-gray-100 duration-200 ease-in-out p-4 block whitespace-no-wrap" href="#">Angka Pengganda</a></li>
     </ul>
             </div>
-
         </li>
         @if(!Auth::check())
         <li
@@ -32,3 +31,4 @@
 <div class="text-center text-3xl text-white font-medium p-24 bg-orange-500 ">
     <span>Visualisasi Inter-Regional Input-Output Indonesia 2016</span>
 </div>
+

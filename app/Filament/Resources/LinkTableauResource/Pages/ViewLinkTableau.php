@@ -4,19 +4,16 @@ namespace App\Filament\Resources\LinkTableauResource\Pages;
 
 use App\Filament\Resources\LinkTableauResource;
 use Filament\Pages\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class EditLinkTableau extends EditRecord
+class ViewLinkTableau extends ViewRecord
 {
     protected static string $resource = LinkTableauResource::class;
 
     protected function getActions(): array
     {
         return [
-            Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
-            Actions\ForceDeleteAction::make(),
-            Actions\RestoreAction::make(),
+            Actions\EditAction::make(),
         ];
     }
 }

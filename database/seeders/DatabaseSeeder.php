@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\IrioIntraInter;
 use App\Models\IrioSummary;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             IrioSummarySeeder::class,
-            LinkTableauSeeder::class
+            LinkTableauSeeder::class,
+            IrioIntraInterSeeder::class
         ]);
     }
 }
