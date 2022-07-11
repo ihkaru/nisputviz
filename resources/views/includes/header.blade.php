@@ -14,5 +14,5 @@
             </ul>
         </navbar>
         <div class="text-center text-3xl text-white font-medium p-24 bg-orange-500 ">
-            <span>Indonesia's 2016 Inter-Regional Input-Output</span>
+            <span>{!! $tab->judul !!}</span>
         </div>

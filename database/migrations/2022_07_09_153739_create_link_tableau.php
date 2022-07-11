@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('link');
             $table->string('jenis_dashboard',30);
+            $table->string('judul',100);
             $table->softDeletes();
             $table->timestamps();
         });
