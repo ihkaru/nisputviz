@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('provinsi',150);
             $table->string('kode_kategori', 10);
             $table->string('kategori',150);
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
             $table->string('variable',150);
             $table->double('value')->default(0);
             $table->softDeletes();
