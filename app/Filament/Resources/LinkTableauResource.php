@@ -32,9 +32,9 @@ class LinkTableauResource extends Resource
                     ->rows(15),
                 Select::make('jenis_dashboard')
                     ->options([
-                        'Dahsboard 1' => 'Dashboard 1',
-                        'Dahsboard 2' => 'Dashboard 2',
-                        'Dahsboard 3' => 'Dashboard 3',
+                        'Dashboard 1' => 'Dashboard 1',
+                        'Dashboard 2' => 'Dashboard 2',
+                        'Dashboard 3' => 'Dashboard 3',
                     ])
                     ->required()
             ]);
@@ -50,6 +50,7 @@ class LinkTableauResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make()
             ])
             ->filters([
                 SelectFilter::make('jenis_dashboard')
