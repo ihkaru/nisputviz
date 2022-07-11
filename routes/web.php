@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontController::class,"index"]);
+Route::get('/', function (){
+    return redirect("/dash/1");
+});
+Route::get('/dash/{id}', [FrontController::class,"dash"]);
 Route::get('/login', function (){
     return redirect("/admin/login");
 });

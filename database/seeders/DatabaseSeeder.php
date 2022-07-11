@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminSeeder::class,
-            IrioSummarySeeder::class
+            IrioSummarySeeder::class,
+            LinkTableauSeeder::class
         ]);
     }
 }
