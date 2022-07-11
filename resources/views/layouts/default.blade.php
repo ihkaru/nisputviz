@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+    .dropdown:hover .dropdown-menu {
+  display: block;
+}
+</style>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head class="w-full mb-8">
         @include('includes.head')
