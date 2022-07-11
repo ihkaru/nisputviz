@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('link_tableau', function (Blueprint $table) {
             $table->id();
             $table->text('link');
-            $table->string('jenis_dashboard',30);
+            $table->string('jenis_dashboard',30)->unique();
             $table->string('judul',100);
             $table->softDeletes();
             $table->timestamps();

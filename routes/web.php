@@ -20,4 +20,4 @@ Route::get('/', function (){
 Route::get('/dash/{id}', [FrontController::class,"dash"]);
 Route::get('/login', function (){
     return redirect("/admin/login");
-});
+})->name("login");

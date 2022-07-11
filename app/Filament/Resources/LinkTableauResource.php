@@ -12,10 +12,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Select;
-use Filament\Tables\Filters\SelectFilter;
 
 class LinkTableauResource extends Resource
 {
@@ -27,16 +23,20 @@ class LinkTableauResource extends Resource
     {
         return $form
             ->schema([
-                Textarea::make('link')
-                    ->required()
-                    ->rows(15),
-                Select::make('jenis_dashboard')
+                Forms\Components\Select::make('jenis_dashboard')
                     ->options([
                         'Dashboard 1' => 'Dashboard 1',
                         'Dashboard 2' => 'Dashboard 2',
                         'Dashboard 3' => 'Dashboard 3',
                     ])
+                    ->unique("link_tableau","jenis_dashboard",null,null,true)
+                    ->required(),
+                Forms\Components\TextInput::make('judul')
                     ->required()
+                    ->maxLength(100),
+                Forms\Components\Textarea::make('link')
+                    ->rows(15)
+                    ->required(),
             ]);
     }
 
@@ -44,25 +44,35 @@ class LinkTableauResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('link')->limit(50),
-                TextColumn::make('jenis_dashboard'),
-                TextColumn::make('created_at')->sortable(),
+                Tables\Columns\TextColumn::make('link')->limit(50),
+                Tables\Columns\TextColumn::make('jenis_dashboard'),
+                Tables\Columns\TextColumn::make('judul'),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime(),
+            ])
+            ->filters([
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make()
-            ])
-            ->filters([
-                SelectFilter::make('jenis_dashboard')
-                    ->options([
-                        'Dahsboard 1' => 'Dashboard 1',
-                        'Dahsboard 2' => 'Dashboard 2',
-                        'Dahsboard 3' => 'Dashboard 3',
-                    ])
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
-            ])->defaultSort('created_at', 'desc');
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
@@ -70,6 +80,8 @@ class LinkTableauResource extends Resource
         return [
             'index' => Pages\ListLinkTableaus::route('/'),
             'create' => Pages\CreateLinkTableau::route('/create'),
+            'view' => Pages\ViewLinkTableau::route('/{record}'),
+            'edit' => Pages\EditLinkTableau::route('/{record}/edit'),
         ];
     }
 
