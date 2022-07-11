@@ -50,6 +50,7 @@ class LinkTableauResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make()
             ])
             ->filters([
                 SelectFilter::make('jenis_dashboard')
